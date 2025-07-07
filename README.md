@@ -14,7 +14,7 @@ In addition to the core exchange, we have also created a **proxy server** that c
 ## Tech Stack
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Next-20232A?style=for-the-badge&logo=nextdotjs&logoColor=61DAFB" alt="Next.js" />
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
   <img src="https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=websocket&logoColor=white" alt="WebSocket" />
@@ -22,7 +22,7 @@ In addition to the core exchange, we have also created a **proxy server** that c
 </p>
 
 
-- **Frontend:** React  
+- **Frontend:** NextJS  
 - **Backend:** Node.js (Express)  
 - **Database:** PostgreSQL  
 - **Real-time Communication:** WebSocket  
