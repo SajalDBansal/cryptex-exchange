@@ -1,0 +1,25 @@
+{
+  "name": "exchange-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -b",
+    "start": "node ist/index.js",
+    "dev": "npm run build && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/pg": "^8.15.4",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "redis": "^5.5.6"
+  }
+}
