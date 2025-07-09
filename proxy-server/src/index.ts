@@ -2,31 +2,30 @@ const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 
-// Replace this with the target server URL
 const targetUrl = 'https://api.backpack.exchange';
+const allowedOrigins = ['https://cryptex-exchange-xi.vercel.app'];
 
-// Handle CORS
 app.use((req: any, res: any, next: any) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Expose-Headers', 'Content-Length, Content-Range');
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin); // NOT '*'
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+    }
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Length, Content-Range');
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
     next();
 });
 
 app.use('/', createProxyMiddleware({
     target: targetUrl,
     changeOrigin: true,
-    onProxyReq: (proxyReq: any, req: any, res: any) => {
-        // Optionally, you can modify the request here
-    },
-    onProxyRes: (proxyRes: any, req: any, res: any) => {
-        // Optionally, you can modify the response here
-    }
 }));
 
-const port = 8080;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Proxy server running on http://localhost:${port}`);
 });
